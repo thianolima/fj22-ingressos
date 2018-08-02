@@ -1,7 +1,5 @@
 package br.com.caelum.ingresso.validacao;
 
-
-
 import java.time.LocalTime;
 import java.util.List;
 
@@ -18,16 +16,17 @@ public class GerenciadorDeSessao {
 	private boolean horarioIsConflitantes(Sessao sessaoExistente, Sessao sessaoNova){		
 		
 		LocalTime horaSessaoExistente = sessaoExistente.getHorario();
-		LocalTime horaSessaoNova = sessaoNova.getHorario();
+		LocalTime horaSessaoNova = sessaoNova.getHorario();		
+	
+		boolean antes = horaSessaoNova.isBefore(horaSessaoExistente);
 		
-		boolean terminaAntes = sessaoNova.getHorarioTermino().isBefore(horaSessaoExistente);
-		boolean comecaDepois = sessaoExistente.getHorarioTermino().isBefore(horaSessaoNova);
 		
-		if(terminaAntes || comecaDepois){
-			return false;
-		} 
-
-		return true;
+		if (antes){
+			return sessaoNova.getHorarioTermino().isAfter(horaSessaoExistente);
+			
+		} else {
+			return sessaoExistente.getHorarioTermino().isAfter(horaSessaoNova);
+		}
 		
 	}
 	
