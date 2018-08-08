@@ -25,9 +25,7 @@ public class Filme {
     @Column(columnDefinition="decimal(10,2) default '0.0'")
     private BigDecimal preco = BigDecimal.ZERO;
 
-	public void setDuracao(Duration duracao) {
-		this.duracao = duracao;
-	}
+	
 
 	/**
      * @deprecated hibernate only

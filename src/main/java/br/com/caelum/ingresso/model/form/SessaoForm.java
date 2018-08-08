@@ -53,8 +53,8 @@ public class SessaoForm {
 		return horario;
 	}
 
-	public void setHorario(LocalTime horario) {
-		this.horario = horario;
+	public void setHorario(String horario) {
+		this.horario = LocalTime.parse(horario);
 	}
 	
 	public Sessao toSessao(SalaDao salaDao, FilmeDao filmeDao){
