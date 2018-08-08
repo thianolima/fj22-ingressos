@@ -38,8 +38,8 @@
 								<tr>
 								<c:forEach var="lugar" items="${map.value}">
 									<td class="fileira-assento"><figure>
-										<svg class="assento ${sessao.isDisponivel(lugar) ? "disponivel" : "ocupado"}" 
-										     onclick="${sessao.isDisponivel(lugar) ? 'changeCheckbox(this)' : ''}"  
+										<svg class="assento ${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? "disponivel" : "ocupado"}" 
+										     onclick="${sessao.isDisponivel(lugar) && !carrinho.isSelecionado(lugar) ? 'changeCheckbox(this)' : ''}"  
 										     id="${lugar.id}"  
 										     version="1.0" 
 										     id="SEAT" 
